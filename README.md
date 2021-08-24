@@ -58,11 +58,11 @@ kss.splitSentences(text);
   - Informal articles (SNS, Blogs, Messages, ...) : recommend `useHeuristic=true`
 
 ```java
-
+import kss.Kss;
 
 Kss kss=new Kss();
-        String text="미리 예약을 할 수 있는 시스템으로 합리적인 가격에 여러 종류의 생선, 그리고 다양한 부위를 즐길 수 있기 때문이다. 계절에 따라 모둠회의 종류는 조금씩 달라지지만 자주 올려주는 참돔 마스까와는 특히 맛이 매우 좋다. 일반 모둠회도 좋지만 좀 더 특별한 맛을 즐기고 싶다면 특수 부위 모둠회를 추천한다 제철 생선 5~6가지 구성에 평소 접하지 못했던 부위까지 색다르게 즐길 수 있다.";
-        kss.splitSentences(text,false);  
+String text="미리 예약을 할 수 있는 시스템으로 합리적인 가격에 여러 종류의 생선, 그리고 다양한 부위를 즐길 수 있기 때문이다. 계절에 따라 모둠회의 종류는 조금씩 달라지지만 자주 올려주는 참돔 마스까와는 특히 맛이 매우 좋다. 일반 모둠회도 좋지만 좀 더 특별한 맛을 즐기고 싶다면 특수 부위 모둠회를 추천한다 제철 생선 5~6가지 구성에 평소 접하지 못했던 부위까지 색다르게 즐길 수 있다.";
+kss.splitSentences(text,false);  
 ```
 ```java
 ["미리 예약을 할 수 있는 시스템으로 합리적인 가격에 여러 종류의 생선, 그리고 다양한 부위를 즐길 수 있기 때문이다.", 
@@ -77,10 +77,10 @@ Kss kss=new Kss();
 import kss.Kss;
 
 Kss kss=new Kss();
-        String text="그가 말했다. '거기는 가지 마세요. 위험하니까요. 알겠죠?' 그러자 그가 말했다. 알겠어요.";
-
-        kss.splitSentences(text)
-        ["그가 말했다.","'거기는 가지 마세요. 위험하니까요. 알겠죠?' 그러자 그가 말했다.","알겠어요."]
+String text="그가 말했다. '거기는 가지 마세요. 위험하니까요. 알겠죠?' 그러자 그가 말했다. 알겠어요.";
+kss.splitSentences(text)
+        
+["그가 말했다.","'거기는 가지 마세요. 위험하니까요. 알겠죠?' 그러자 그가 말했다.","알겠어요."]
 ```
 
 #### 2.3.1. Several options to optimize recursion
@@ -91,14 +91,14 @@ Kss kss=new Kss();
   - You can turn off calibration using the `maxRecoverLength` parameter. (default is 20,000)
 
 ```java
-
+import kss.Kss;
 
 Kss kss=new Kss();
-        String text="VERY_LONG_TEXT";
+String text="VERY_LONG_TEXT";
 
-        splitSentences(text,true,true,5);
+splitSentences(text,true,true,5);
 // you can adjust recursion depth using `maxRecoverStep` (default is 5)
-        splitSentences(text,true,true,5,20000);
+splitSentences(text,true,true,5,20000);
 // you can turn it off when you input very long text using `maxRecoverLength` (default is 20000)
 ```
 
@@ -107,16 +107,16 @@ Kss kss=new Kss();
 - Set `useQuotesBracketsProcessing=false` to turn it off.
 
 ```java
-
+import kss.Kss;
 
 Kss kss=new Kss();
-        String text="그가 말했다. (거기는 가지 마세요. 위험하니까요. 알겠죠?) 그러자 그가 말했다. 알겠어요.";
+String text="그가 말했다. (거기는 가지 마세요. 위험하니까요. 알겠죠?) 그러자 그가 말했다. 알겠어요.";
 
-        kss.splitSentences(text);
-        ['그가 말했다.','(거기는 가지 마세요. 위험하니까요. 알겠죠?) 그러자 그가 말했다.','알겠어요.']
+kss.splitSentences(text);
+['그가 말했다.','(거기는 가지 마세요. 위험하니까요. 알겠죠?) 그러자 그가 말했다.','알겠어요.']
 
-        kss.splitSentences(text,true,false);
-        ['그가 말했다.','(거기는 가지 마세요.','위험하니까요.','알겠죠?',') 그러자 그가 말했다.','알겠어요.']
+kss.splitSentences(text,true,false);
+['그가 말했다.','(거기는 가지 마세요.','위험하니까요.','알겠죠?',') 그러자 그가 말했다.','알겠어요.']
 ```
 
 <br><br>
@@ -142,8 +142,8 @@ Kss kss=new Kss();
 import kss.Kss;
 
 Kss kss=new Kss();
-        String text="NoSQL이라고 하는 말은 No 'English'라고 하는 말과 마찬가지다. 세상에는 영어 말고도 수많은 언어가 존재한다. MongoDB에서 사용하는 쿼리 언어와 CouchDB에서 사용하는 쿼리 언어는 서로 전혀 다르다. 그럼에도 이 두 쿼리 언어는 같은 NoSQL 카테고리에 속한다. 어쨌거나 SQL이 아니기 때문이다. 또한 NoSQL이 No RDBMS를 의미하지는 않는다. BerkleyDB같은 예외가 있기 때문이다. 그리고 No RDBMS가 NoSQL인 것도 아니다. SQL호환 레이어를 제공하는 KV-store라는 예외가 역시 존재한다. 물론 KV-store의 특징상 range query를 where절에 넣을 수 없으므로 완전한 SQL은 못 되고 SQL의 부분집합 정도를 제공한다.";
-        kss.splitChunks(text,128);
+String text="NoSQL이라고 하는 말은 No 'English'라고 하는 말과 마찬가지다. 세상에는 영어 말고도 수많은 언어가 존재한다. MongoDB에서 사용하는 쿼리 언어와 CouchDB에서 사용하는 쿼리 언어는 서로 전혀 다르다. 그럼에도 이 두 쿼리 언어는 같은 NoSQL 카테고리에 속한다. 어쨌거나 SQL이 아니기 때문이다. 또한 NoSQL이 No RDBMS를 의미하지는 않는다. BerkleyDB같은 예외가 있기 때문이다. 그리고 No RDBMS가 NoSQL인 것도 아니다. SQL호환 레이어를 제공하는 KV-store라는 예외가 역시 존재한다. 물론 KV-store의 특징상 range query를 where절에 넣을 수 없으므로 완전한 SQL은 못 되고 SQL의 부분집합 정도를 제공한다.";
+kss.splitChunks(text,128);
 ```
 ```java
 [ChunkWithIndex(start=0, text="NoSQL이라고 하는 말은 No 'English'라고 하는 말과 마찬가지다. 세상에는 영어 말고도 수많은 언어가 존재한다. MongoDB에서 사용하는 쿼리 언어와 CouchDB에서 사용하는 쿼리 언어는 서로 전혀 다르다."),
@@ -160,8 +160,8 @@ Kss kss=new Kss();
 import kss.Kss;
 
 Kss kss=new Kss();
-        String text="NoSQL이라고 하는 말은 No 'English'라고 하는 말과 마찬가지다. 세상에는 영어 말고도 수많은 언어가 존재한다. MongoDB에서 사용하는 쿼리 언어와 CouchDB에서 사용하는 쿼리 언어는 서로 전혀 다르다. 그럼에도 이 두 쿼리 언어는 같은 NoSQL 카테고리에 속한다. 어쨌거나 SQL이 아니기 때문이다. 또한 NoSQL이 No RDBMS를 의미하지는 않는다. BerkleyDB같은 예외가 있기 때문이다. 그리고 No RDBMS가 NoSQL인 것도 아니다. SQL호환 레이어를 제공하는 KV-store라는 예외가 역시 존재한다. 물론 KV-store의 특징상 range query를 where절에 넣을 수 없으므로 완전한 SQL은 못 되고 SQL의 부분집합 정도를 제공한다.";
-        kss.splitChunks(text,128,false,true); // text maxLength, overlap, useHeuristic,
+String text="NoSQL이라고 하는 말은 No 'English'라고 하는 말과 마찬가지다. 세상에는 영어 말고도 수많은 언어가 존재한다. MongoDB에서 사용하는 쿼리 언어와 CouchDB에서 사용하는 쿼리 언어는 서로 전혀 다르다. 그럼에도 이 두 쿼리 언어는 같은 NoSQL 카테고리에 속한다. 어쨌거나 SQL이 아니기 때문이다. 또한 NoSQL이 No RDBMS를 의미하지는 않는다. BerkleyDB같은 예외가 있기 때문이다. 그리고 No RDBMS가 NoSQL인 것도 아니다. SQL호환 레이어를 제공하는 KV-store라는 예외가 역시 존재한다. 물론 KV-store의 특징상 range query를 where절에 넣을 수 없으므로 완전한 SQL은 못 되고 SQL의 부분집합 정도를 제공한다.";
+kss.splitChunks(text,128,false,true); // text maxLength, overlap, useHeuristic,
 ```
 ```java
 [ChunkWithIndex(start=0, text="NoSQL이라고 하는 말은 No 'English'라고 하는 말과 마찬가지다. 세상에는 영어 말고도 수많은 언어가 존재한다. MongoDB에서 사용하는 쿼리 언어와 CouchDB에서 사용하는 쿼리 언어는 서로 전혀 다르다."),
@@ -180,8 +180,8 @@ Kss kss=new Kss();
 import kss.Kss;
 
 Kss kss=new Kss();
-        String text="NoSQL이라고 하는 말은 No 'English'라고 하는 말과 마찬가지다. 세상에는 영어 말고도 수많은 언어가 존재한다. MongoDB에서 사용하는 쿼리 언어와 CouchDB에서 사용하는 쿼리 언어는 서로 전혀 다르다. 그럼에도 이 두 쿼리 언어는 같은 NoSQL 카테고리에 속한다. 어쨌거나 SQL이 아니기 때문이다. 또한 NoSQL이 No RDBMS를 의미하지는 않는다. BerkleyDB같은 예외가 있기 때문이다. 그리고 No RDBMS가 NoSQL인 것도 아니다. SQL호환 레이어를 제공하는 KV-store라는 예외가 역시 존재한다. 물론 KV-store의 특징상 range query를 where절에 넣을 수 없으므로 완전한 SQL은 못 되고 SQL의 부분집합 정도를 제공한다.";
-        splitChunks(text,128,false,true,false); // text maxLength, overlap, useHeuristic, useQuotesBracketsProcessing,
+String text="NoSQL이라고 하는 말은 No 'English'라고 하는 말과 마찬가지다. 세상에는 영어 말고도 수많은 언어가 존재한다. MongoDB에서 사용하는 쿼리 언어와 CouchDB에서 사용하는 쿼리 언어는 서로 전혀 다르다. 그럼에도 이 두 쿼리 언어는 같은 NoSQL 카테고리에 속한다. 어쨌거나 SQL이 아니기 때문이다. 또한 NoSQL이 No RDBMS를 의미하지는 않는다. BerkleyDB같은 예외가 있기 때문이다. 그리고 No RDBMS가 NoSQL인 것도 아니다. SQL호환 레이어를 제공하는 KV-store라는 예외가 역시 존재한다. 물론 KV-store의 특징상 range query를 where절에 넣을 수 없으므로 완전한 SQL은 못 되고 SQL의 부분집합 정도를 제공한다.";
+splitChunks(text,128,false,true,false); // text maxLength, overlap, useHeuristic, useQuotesBracketsProcessing,
 ```
 <br><br>
 
