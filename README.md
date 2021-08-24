@@ -16,7 +16,13 @@ Split Korean text into sentences using heuristic algorithm.
 ```
 - Gradle
 ```console
-implementation 'io.github.sangdee:kss-java:2.6.0'
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'io.github.sangdee:kss-java:2.6.0'
+}
 ```
 
 <br><br>
