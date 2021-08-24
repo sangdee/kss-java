@@ -1,5 +1,5 @@
 package kss.core;
-/**
+/*
  * Korean Sentence Splitter
  * Split Korean text into sentences using heuristic algorithm.
  *

@@ -1,5 +1,5 @@
 package kss.base;
-/**
+/*
  * Korean Sentence Splitter
  * Split Korean text into sentences using heuristic algorithm.
  *
@@ -10,7 +10,6 @@ package kss.base;
  * This software may be modified and distributed under the terms
  * of the BSD license.  See the LICENSE file for details.
  */
-
 public class ChunkWithIndex {
 
     private int start;

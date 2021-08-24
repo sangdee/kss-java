@@ -1,5 +1,5 @@
 package kss.util;
-/**
+/*
  * Korean Sentence Splitter
  * Split Korean text into sentences using heuristic algorithm.
  *
@@ -10,9 +10,13 @@ package kss.util;
  * This software may be modified and distributed under the terms
  * of the BSD license.  See the LICENSE file for details.
  */
-
 public class IntToBool {
 
+    /**
+     *
+     * @param input
+     * @return
+     */
     public static boolean intToBool(int input) {
         return input >= 1;
     }

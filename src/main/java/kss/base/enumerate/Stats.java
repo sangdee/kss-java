@@ -1,5 +1,5 @@
 package kss.base.enumerate;
-/**
+/*
  * Korean Sentence Splitter
  * Split Korean text into sentences using heuristic algorithm.
  *

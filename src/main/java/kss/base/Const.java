@@ -1,5 +1,5 @@
 package kss.base;
-/**
+/*
  * Korean Sentence Splitter
  * Split Korean text into sentences using heuristic algorithm.
  *
@@ -51,23 +51,23 @@ public class Const {
         .asList("'", "‘", "’");
     public static final ArrayList<String> singleQuotes = new ArrayList<>(singleQuotesArr);
 
-    public static HashMap<String, String> doubleQuotesOpenToClose = new HashMap<>() {{
+    public static HashMap<String, String> doubleQuotesOpenToClose = new HashMap<String, String>() {{
         put("“", "”");
         put("\"", "\"");
     }};
-    public static HashMap<String, String> doubleQuotesCloseToOpen = new HashMap<>() {{
+    public static HashMap<String, String> doubleQuotesCloseToOpen = new HashMap<String, String>() {{
         put("”", "“");
         put("\"", "\"");
     }};
-    public static HashMap<String, String> singleQuotesOpenToClose = new HashMap<>() {{
+    public static HashMap<String, String> singleQuotesOpenToClose = new HashMap<String, String>() {{
         put("‘", "’");
         put("'", "'");
     }};
-    public static HashMap<String, String> singleQuotesCloseToOpen = new HashMap<>() {{
+    public static HashMap<String, String> singleQuotesCloseToOpen = new HashMap<String, String>() {{
         put("’", "‘");
         put("'", "'");
     }};
-    public static HashMap<String, String> bracketOpenToClose = new HashMap<>() {{
+    public static HashMap<String, String> bracketOpenToClose = new HashMap<String, String>() {{
         put("(", ")");
         put("（", "）");
         put("〈", "〉");
@@ -81,7 +81,7 @@ public class Const {
         put("「", "」");
         put("『", "』");
     }};
-    public static HashMap<String, String> bracketCloseToOpen = new HashMap<>() {{
+    public static HashMap<String, String> bracketCloseToOpen = new HashMap<String, String>() {{
         put(")", "(");
         put("）", "（");
         put("〉", "〈");
