@@ -11,7 +11,7 @@ Split Korean text into sentences using heuristic algorithm.
 <dependency>
   <groupId>io.github.sangdee</groupId>
   <artifactId>kss-java</artifactId>
-  <version>2.6.0</version>
+  <version>2.6.1</version>
 </dependency>
 ```
 - Gradle
@@ -21,7 +21,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'io.github.sangdee:kss-java:2.6.0'
+    implementation 'io.github.sangdee:kss-java:2.6.1'
 }
 ```
 
@@ -193,6 +193,6 @@ splitChunks(text, 128, false, true, false); // text maxLength, overlap, useHeuri
 
 ## 4. References
 Kss is available in various programming languages.
-- [Java version (ver 2.6.0)](https://github.com/sangdee/kss-java) is based on [Kss 2.6.0](https://github.com/hyunwoongko/kss/blob/main/docs/UPDATE.md#kss-260) and will be updated to 3.xx in the future.
+- [Java version (ver 2.6.1)](https://github.com/sangdee/kss-java) is based on [Kss 2.6.0](https://github.com/hyunwoongko/kss/blob/main/docs/UPDATE.md#kss-260) and will be updated to 3.xx in the future.
 - [Python version (this repo, ver 3.1.0.4)](https://github.com/hyunwoongko/kss) contains the most recent changes to Kss.
 - [C++ version (ver 1.3.1)](https://github.com/likejazz/korean-sentence-splitter) has the original implementation of Kss but is deprecated now.
