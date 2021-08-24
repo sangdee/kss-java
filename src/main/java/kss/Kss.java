@@ -1,4 +1,4 @@
-package kss.core;
+package kss;
 /*
  * Korean Sentence Splitter
  * Split Korean text into sentences using heuristic algorithm.
@@ -12,6 +12,7 @@ package kss.core;
  */
 import kss.base.ChunkWithIndex;
 import java.util.ArrayList;
+import kss.core.Backend;
 
 public class Kss {
 

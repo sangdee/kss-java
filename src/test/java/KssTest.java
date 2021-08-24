@@ -1,5 +1,5 @@
 import java.util.List;
-import kss.core.Kss;
+import kss.Kss;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
